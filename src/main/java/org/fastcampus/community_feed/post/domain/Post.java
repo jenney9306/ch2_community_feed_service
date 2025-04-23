@@ -80,6 +80,7 @@ public class Post {
       throw new IllegalArgumentException();
     }
     this.state = state;
-    this.content.updateContent(updateContent);
+    this.content.updateContent(updateContent.getContentText());
   }
+
 }
