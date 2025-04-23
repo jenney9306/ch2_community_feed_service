@@ -1,6 +1,7 @@
 package org.fastcampus.community_feed.post.domain.comment;
 
 import org.fastcampus.community_feed.post.domain.Post;
+import org.fastcampus.community_feed.post.domain.content.CommentContent;
 import org.fastcampus.community_feed.post.domain.content.Content;
 import org.fastcampus.community_feed.post.domain.like.LikeCounter;
 import org.fastcampus.community_feed.user.domain.User;
@@ -12,6 +13,9 @@ public class Comment {
   private final Content content;
   private final LikeCounter likeCounter;
 
+  public static Comment createComment(Post post, User author,String comment){
+    return new Comment(null, post, author, new CommentContent(comment));
+  }
   public Comment(Long id, Post post, User author, Content content,
           LikeCounter likeCounter) {
       if (post == null) {

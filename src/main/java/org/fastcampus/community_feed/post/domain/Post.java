@@ -29,7 +29,9 @@ public class Post {
   public Post(Long id, User author, Content content) {
     this(id, author, content, PostPublicationState.PUBLIC, new LikeCounter());
   }
-
+  public Post(Long id, User author, Content content, PostPublicationState state) {
+    this(id, author, content, state, new LikeCounter());
+  }
   public void updateContent(User user, String content) {
     if (!author.equals(user)) {
       throw new IllegalArgumentException("only author can update content");
@@ -70,5 +72,14 @@ public class Post {
 
   public int getLikeCount() {
     return likeCounter.getLikeCount();
+  }
+
+  public void updatePost(User user, Content updateContent, PostPublicationState state){
+
+    if(!this.author.equals(user)){
+      throw new IllegalArgumentException();
+    }
+    this.state = state;
+    this.content.updateContent(updateContent);
   }
 }
