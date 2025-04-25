@@ -56,7 +56,7 @@ public class PostService {
 
 
     public void unLikePost(LikeRequestDto dto){
-        Post post = getPost(dto.postId());
+        Post post = getPost(dto.targetId());
         User user = userService.getUser(dto.userId());
 
         if(likeRepository.checkList(post, user)){

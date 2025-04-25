@@ -5,12 +5,13 @@ import org.fastcampus.community_feed.user.application.dto.CreateUserRequestDto;
 import org.fastcampus.community_feed.user.application.interfaces.UserRepository;
 import org.fastcampus.community_feed.user.domain.User;
 import org.fastcampus.community_feed.user.domain.UserInfo;
+import org.springframework.stereotype.Service;
 
 import java.util.IllformedLocaleException;
 
+@Service
 public class UserService {
     private final UserRepository userRepository;
-
 
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
